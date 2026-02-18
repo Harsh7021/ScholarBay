@@ -1,8 +1,9 @@
 import React from 'react';
+import { backendRoot } from '../../api/axiosClient.js';
 
 const PDFViewerModal = ({ resource, onClose }) => {
   if (!resource) return null;
-  const url = `http://localhost:5000/${resource.filePath}`.replace(/\\/g, '/');
+  const url = `${backendRoot}/${(resource.filePath || '').replace(/\\/g, '/')}`;
 
   return (
     <div className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex flex-column">

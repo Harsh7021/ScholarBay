@@ -20,11 +20,16 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       await register(form);
       navigate('/');
-    } catch {
-      setError('Registration failed');
+    } catch (err) {
+      const msg = err.response?.data?.message || err.message || 'Registration failed';
+      const hint = !err.response
+        ? ' Check your connection. If using the deployed site, the server may be waking up—try again in a moment.'
+        : '';
+      setError(msg + hint);
     }
   };
 

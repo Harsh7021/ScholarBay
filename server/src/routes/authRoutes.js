@@ -12,6 +12,10 @@ router.post('/register', async (req, res) => {
   try {
     const { fullName, email, password, course, yearSemester } = req.body;
 
+    if (!fullName || !email || !password) {
+      return res.status(400).json({ message: 'Full name, email, and password are required' });
+    }
+
     const existing = await User.findOne({ email });
     if (existing) {
       return res.status(400).json({ message: 'User already exists' });
@@ -36,14 +40,22 @@ router.post('/register', async (req, res) => {
       },
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Registration error:', err);
+    if (err.name === 'ValidationError') {
+      return res.status(400).json({ message: Object.values(err.errors).map(e => e.message).join(', ') });
+    }
+    res.status(500).json({ message: err.message || 'Server error' });
   }
 });
 
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
+    
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required' });
+    }
+
     const user = await User.findOne({ email });
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
@@ -60,8 +72,8 @@ router.post('/login', async (req, res) => {
       },
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Login error:', err);
+    res.status(500).json({ message: err.message || 'Server error' });
   }
 });
 

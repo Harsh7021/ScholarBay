@@ -12,8 +12,12 @@ const Navbar = ({ onSearchChange }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (onSearchChange) onSearchChange(search);
-    if (location.pathname !== '/library') navigate('/library');
+    if (location.pathname === '/library') {
+      navigate(`/library?search=${encodeURIComponent(search)}`);
+      if (onSearchChange) onSearchChange(search);
+    } else {
+      navigate(`/library?search=${encodeURIComponent(search)}`);
+    }
   };
 
   return (

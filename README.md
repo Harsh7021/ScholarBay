@@ -55,3 +55,33 @@ This project contains a full-stack ScholarBay implementation:
 
 SSO logins (Google/GitHub/Facebook/Apple) and real payment processing can be added later using passport and a payment gateway like Razorpay or Stripe.
 
+### 4. Deployment (Render + Netlify)
+
+**Backend (Render):**
+
+1. Push code to GitHub
+2. Create a new Web Service on Render
+3. Connect your GitHub repo
+4. Set **Root Directory** to: `server`
+5. Set **Build Command**: `npm install`
+6. Set **Start Command**: `npm start`
+7. Add Environment Variables:
+   - `MONGO_URI` = your MongoDB Atlas connection string
+   - `JWT_SECRET` = a long random string
+   - `CLIENT_URL` = `https://your-netlify-site.netlify.app,http://localhost:5173` (comma-separated, no spaces)
+8. Deploy
+
+**Frontend (Netlify):**
+
+1. Push code to GitHub
+2. Create a new site on Netlify
+3. Connect your GitHub repo
+4. Set **Base directory**: `client`
+5. Set **Build command**: `npm run build`
+6. Set **Publish directory**: `dist`
+7. Add Environment Variable (optional):
+   - `VITE_API_URL` = `https://your-render-service.onrender.com/api` (if different from default)
+8. Deploy
+
+**Important:** After deploying, update `CLIENT_URL` on Render to include your Netlify URL so CORS works correctly.
+

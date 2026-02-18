@@ -5,10 +5,21 @@ const AskPage = () => {
   const [questions, setQuestions] = useState([]);
   const [text, setText] = useState('');
   const [subject, setSubject] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const fetchQuestions = async () => {
-    const { data } = await api.get('/questions');
-    setQuestions(data);
+    setError('');
+    setLoading(true);
+    try {
+      const { data } = await api.get('/questions');
+      setQuestions(data);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to load questions');
+      setQuestions([]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -17,21 +28,33 @@ const AskPage = () => {
 
   const handleAsk = async (e) => {
     e.preventDefault();
-    await api.post('/questions', { text, subject });
-    setText('');
-    setSubject('');
-    fetchQuestions();
+    setError('');
+    try {
+      await api.post('/questions', { text, subject });
+      setText('');
+      setSubject('');
+      fetchQuestions();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to post question');
+    }
   };
 
   const handleAnswer = async (id, answerText) => {
     if (!answerText) return;
-    await api.post(`/questions/${id}/answers`, { text: answerText });
-    fetchQuestions();
+    setError('');
+    try {
+      await api.post(`/questions/${id}/answers`, { text: answerText });
+      fetchQuestions();
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to post answer');
+    }
   };
 
   return (
     <div className="container py-4">
       <h2 className="mb-3">Ask & Help</h2>
+      {error && <div className="alert alert-danger">{error}</div>}
+      {loading && <p className="text-muted">Loading...</p>}
       <form onSubmit={handleAsk} className="mb-4">
         <div className="mb-2">
           <label className="form-label">Your question</label>
@@ -63,7 +86,7 @@ const AskPage = () => {
               {q.subject} • Asked by {q.askedBy?.fullName || 'Student'}
             </p>
             <ul className="list-unstyled">
-              {q.answers.map((a) => (
+              {(q.answers || []).map((a) => (
                 <li key={a._id} className="mb-1">
                   <strong>{a.answeredBy?.fullName || 'Student'}:</strong> {a.text}
                 </li>

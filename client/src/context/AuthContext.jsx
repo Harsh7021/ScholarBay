@@ -8,15 +8,25 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const login = async (email, password) => {
-    const { data } = await api.post('/auth/login', { email, password });
-    localStorage.setItem('sb_token', data.token);
-    setUser(data.user);
+    try {
+      const { data } = await api.post('/auth/login', { email, password });
+      localStorage.setItem('sb_token', data.token);
+      const { data: fullUser } = await api.get('/auth/me');
+      setUser(fullUser);
+    } catch (err) {
+      throw err;
+    }
   };
 
   const register = async (payload) => {
-    const { data } = await api.post('/auth/register', payload);
-    localStorage.setItem('sb_token', data.token);
-    setUser(data.user);
+    try {
+      const { data } = await api.post('/auth/register', payload);
+      localStorage.setItem('sb_token', data.token);
+      const { data: fullUser } = await api.get('/auth/me');
+      setUser(fullUser);
+    } catch (err) {
+      throw err;
+    }
   };
 
   const logout = () => {

@@ -11,11 +11,16 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       await login(email, password);
       navigate('/');
-    } catch {
-      setError('Invalid email or password');
+    } catch (err) {
+      const msg = err.response?.data?.message || err.message || 'Invalid email or password';
+      const hint = !err.response
+        ? ' Check your connection. If using the deployed site, the server may be waking up—try again in a moment.'
+        : '';
+      setError(msg + hint);
     }
   };
 
