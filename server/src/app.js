@@ -3,9 +3,14 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
+
+// 1. Move dotenv.config() to the very top to ensure 
+// environment variables are loaded before connectDB() is called.
+dotenv.config(); 
+
 const connectDB = require('./config/db');
 
-dotenv.config();
+// 2. Initialize the database connection.
 connectDB();
 
 const app = express();
@@ -52,4 +57,3 @@ app.get('/health', (req, res) => {
 });
 
 module.exports = app;
-
