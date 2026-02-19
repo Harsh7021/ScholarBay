@@ -7,7 +7,7 @@ const app = require('./app');
 const PORT = process.env.PORT || 5000;
 
 // 3. Changed to MONGO_URI to match your Render "Key"
-const DB_URI = process.env.MONGO_URI || 'mongodb+srv://chintutupe7:702197QW@scholarbay.e0ozr1u.mongodb.net/?appName=ScholarBay';
+const DB_URI = process.env.MONGO_URI || 'mongodb+srv://studenthub_admin:ScholarBay@cluster0.afb0th7.mongodb.net/?appName=Cluster0';
 
 // 4. Added actual connection logic
 mongoose.connect(DB_URI)
