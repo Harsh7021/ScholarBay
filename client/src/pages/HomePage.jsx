@@ -37,20 +37,5 @@ const HomePage = () => (
   </div>
 );
 
-const Hero = () => (
-  <div className="bg-primary text-white py-5 mb-5 shadow-sm">
-    <div className="container text-center py-5">
-      <h1 className="display-4 fw-bold mb-3">Master Your Exams with ScholarBay</h1>
-      <p className="lead mb-4 opacity-75">
-        The ultimate community-driven hub for notes, papers, and academic success.
-      </p>
-      <div className="d-flex justify-content-center gap-3">
-        <Link to="/library" className="btn btn-light btn-lg px-4 shadow">Browse Library</Link>
-        <Link to="/upload" className="btn btn-outline-light btn-lg px-4">Share Your Notes</Link>
-      </div>
-    </div>
-  </div>
-);
-
 export default HomePage;
 
