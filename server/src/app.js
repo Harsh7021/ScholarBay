@@ -15,7 +15,7 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173,https://scholarbay.netlify.app')
+const allowedOrigins = (process.env.CLIENT_URL || 'https://scholarbay-9bcq.onrender.com,https://scholarbay.netlify.app')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
