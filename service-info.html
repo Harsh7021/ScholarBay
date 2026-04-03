@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>ScholarBay</title>
+      
+      <meta name="keywords" content="ScholarBay Services, IT Study Materials, Digital Notes, Academic Resources">
+      <meta name="description" content="Explore the range of academic services provided by ScholarBay to help IT students excel.">
+
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="css/loading.css">
+      
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+      <style>
+         body { font-family: 'Poppins', sans-serif; background:#f4f7fc; }
+         
+         /* ORIGINAL THEME HERO (As per your image) */
+         .service_hero {
+            /* background-color: #343b7a; Matching the blue in your screenshot */
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 100px 20px;
+            /* border-top: 10px solid #4a148c; Purple accent from your image */
+         }
+
+         .service_hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            color: #111; /* Black title as per screenshot */
+            margin-bottom: 20px;
+         }
+
+         /* MODERN SERVICE CARDS */
+         .service_card {
+            background: rgb(151, 177, 232);
+            padding: 45px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            height: 100%;
+            border-bottom: 5px solid transparent;
+         }
+         
+         .service_card:hover {
+            transform: translateY(-10px);
+            border-bottom: 5px solid #326ed7;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+         }
+         
+         .service_icon { 
+            font-size: 50px; 
+            margin-bottom: 20px; 
+            display: block; 
+            color: #343b7a;
+         }
+
+         /* FEATURE BOXES */
+         .feature_box {
+            padding: 25px;
+            border-left: 5px solid #596d91;
+            background: #fff;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+         }
+
+         /* CTA SECTION */
+         .cta_section {
+            background:#473ec4;
+            color: rgb(255, 255, 255);
+            padding: 80px 20px;
+            text-align: center;
+         }
+         
+         .cta_btn {
+            background:#81c8e7;
+            color: #000000;
+            padding: 15px 45px;
+            border-radius: 5px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 25px;
+            transition: 0.3s;
+            text-transform: uppercase;
+         }
+         
+         .cta_btn:hover { 
+            background: #000000; 
+            color: #343b7a; 
+            text-decoration: none; 
+         }
+      </style>
+   </head>
+   <body>
+
+      <div id="loader-wrapper">
+         <div class="loader-container">
+            <div class="glow"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-logo">⚡</div>
+         </div>
+         <p class="loading-text">Loading ScholarBay Services</p>
+      </div>
+
+     <div class="header_section">
+         <div class="container">
+            <nav class="navbar navbar-dark bg-dark">
+               <a class="logo" href="index.html"><img src="images/logo.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarsExample01">
+   <ul class="navbar-nav w-100">
+
+      <div class="row w-100">
+         <li class="nav-item col-6">
+            <a class="nav-link" href="index.html">Home</a>
+         </li>
+         <li class="nav-item col-6">
+            <a class="nav-link" href="client.html">Client</a>
+         </li>
+      </div>
+
+      <div class="row w-100">
+         <li class="nav-item col-6">
+            <a class="nav-link" href="about.html">About</a>
+         </li>
+         <li class="nav-item col-6">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+         </li>
+      </div>
+
+      <div class="row w-100">
+         <li class="nav-item col-6">
+            <a class="nav-link" href="service-info.html">Services</a>
+         </li>
+         <li class="nav-item col-6">
+            <a class="nav-link" href="profile.html">Profile</a>
+         </li>
+      </div>
+
+      <div class="row w-100">
+         <li class="nav-item col-6">
+            <a class="nav-link" href="Resource-1.html">Resource</a>
+         </li>
+         <li class="nav-item col-6">
+                    <a class="nav-link" href="future-plans.html">Future Plans</a>
+                  </li>
+      </div>
+
+   </ul>
+</div>
+            </nav>
+         </div>
+
+      <section class="service_hero">
+         <div class="container">
+            <h1>Our Services</h1>
+            <p class="lead">Empowering the next generation of IT professionals with high-impact study tools.</p>
+         </div>
+      </section>
+
+      <section class="py-5">
+         <div class="container">
+            <div class="row text-center mb-5">
+               <div class="col-md-12">
+                  <h2 class="font-weight-bold" style="color:#111;">Academic Solutions for Success</h2>
+                  <p class="text-muted">High-quality resources curated for IT excellence.</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4 mb-4">
+                  <div class="service_card">
+                     <span class="service_icon">📚</span>
+                     <h4 class="font-weight-bold">Digital Notes</h4>
+                     <p>Comprehensive subject-wise notes verified for accuracy and updated for the latest syllabus.</p>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                  <div class="service_card">
+                     <span class="service_icon">📄</span>
+                     <h4 class="font-weight-bold">Question Banks</h4>
+                     <p>Access structured archives of previous year papers to master exam patterns effectively.</p>
+                  </div>
+               </div>
+               <div class="col-md-4 mb-4">
+                  <div class="service_card">
+                     <span class="service_icon">⚡</span>
+                     <h4 class="font-weight-bold">Smart Guides</h4>
+                     <p>Last-minute revision kits and summary modules designed for maximum recall during finals.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="py-5 bg-white">
+         <div class="container">
+            <h2 class="text-center mb-5 font-weight-bold">The ScholarBay Advantage</h2>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="feature_box">
+                     <h5 class="font-weight-bold">✔ Semester-Wise Layout</h5>
+                     <p class="mb-0">Content organized by semester for easy, distraction-free navigation.</p>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="feature_box">
+                     <h5 class="font-weight-bold">✔ Verified Quality</h5>
+                     <p class="mb-0">Every resource is vetted by top students to ensure it meets academic standards.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <section class="cta_section">
+         <div class="container">
+            <h2 class="font-weight-bold">Ready to Start Studying Smarter?</h2>
+            <p>Access our library of resources today and upgrade your preparation.</p>
+            <a href="Resource-1.html" class="cta_btn">Browse Resources</a>
+         </div>
+      </section>
+
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="address_main">
+               <div class="address_text"><a href="#"><img src="images/map-icon.png"><span class="padding_left_15">Navi Mumbai, Kamothe</span></a></div>
+               <div class="address_text"><a href="#"><img src="images/call-icon.png"><span class="padding_left_15">tel:+91 7021197422</span></a></div>
+               <div class="address_text"><a href="#"><img src="images/mail-icon.png"><span class="padding_left_15">scholarbay@gmail.com</span></a></div>
+            </div>
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-lg-3 col-sm-6">
+                     <h4 class="link_text">Quick visit</h4>
+                     <div class="footer_menu">
+                        <ul>
+                           <li><a href="index.html">Home</a></li>
+                           <li><a href="about.html">About</a></li>
+                           <li><a href="service-info.html">Services</a></li>
+                           <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Legal</h4>
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                  </ul>
+              </div>
+            </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h4 class="link_text">social media</h4>
+                     <div class="social_icon">
+                        <ul>
+                           <li><a href="https://www.facebook.com/" target="_blank"><img src="images/fb-icon.png" alt="Facebook"></a></li>
+                           <li><a href="https://twitter.com/" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a</li>
+                           <li><a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin-icon.png" alt="LinkedIn"></a></li>
+                           <li><a href="https://www.youtube.com/" target="_blank"><img src="images/youtub-icon.png"></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <h4 class="link_text">ScholarBay Head quarters</h4>
+                     <p class="footer_text_1">Komal CHS Ltd. Sector 9, Kamothe, Navi Mumbai - 410209 Maharashtra, India </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--client section end -->
+      <!--copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">&copy; 2026 All Right Reserved By <a href="index.html">ScholarBay</a></p>
+         </div>
+      </div>
+      <canvas id="cursor-canvas"></canvas>
+      <!--copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> 
+      <script type="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2//2.0.0-beta.2.4/owl.carousel.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="../../assets/js/vendor/popper.min.js"></script>
+      <script src="../../dist/js/bootstrap.min.js"></script>
+
+
+<script>
+   window.addEventListener("load", () => {
+    const loader = document.querySelector("#loader-wrapper");
+    
+    // Add a slight delay for aesthetic purposes (optional)
+    setTimeout(() => {
+        loader.classList.add("loader-hidden");
+    }, 500); 
+});
+</script>
+   </body>
+</html>

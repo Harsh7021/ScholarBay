@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ScholarBay</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-shapes"></div>
+
+    <div class="login-wrapper">
+        <div class="login-card" style="position: relative;">
+            
+            <button type="button" onclick="window.location.href='index.html';" style="position: absolute; top: 15px; right: 15px; border: none; background: none; cursor: pointer; font-size: 1.5rem; color: #333;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Continue your learning journey with <span class="brand">ScholarBay</span>.</p>
+            </div>
+
+            <p id="error-message" style="color: red; text-align: center; display: none; font-size: 0.9rem; margin-bottom: 10px;"></p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="student@example.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="actions" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label class="remember-me">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" id="forgot-password" style="font-size: 0.9rem; color: #4a00e0; text-decoration: none; font-weight: 500;">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Log In</button>
+
+                <div class="divider">
+                    <span>Or continue with</span>
+                </div>
+
+                <button type="button" id="google-btn" class="btn-google">
+                    <img src="images/google-logo.jpg" alt="Google" style="width: 20px; margin-right: 10px;">
+                    Sign in with Google
+                </button>
+
+                <button type="button" id="github-btn" class="btn-google" style="margin-top: 15px;">
+                    <i class="fab fa-github" style="font-size: 1.2rem; margin-right: 10px; color: #24292e;"></i>
+                    Sign in with GitHub
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>New to ScholarBay? <a href="register.html">Create an Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        // ADDED: sendPasswordResetEmail to the imports
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, signInWithPopup, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB6FMgrNQTd0GCbjMva4-VbWkPDRoAn11Q",
+            authDomain: "scholarbay-f5d55.firebaseapp.com",
+            projectId: "scholarbay-f5d55",
+            storageBucket: "scholarbay-f5d55.firebasestorage.app",
+            messagingSenderId: "140514709575",
+            appId: "1:140514709575:web:9594cbb58dc311386a2162",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        const googleProvider = new GoogleAuthProvider();
+        const githubProvider = new GithubAuthProvider();
+
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('error-message');
+
+        // 1. Handle Standard Email/Password Login
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    window.location.href = "profile.html";
+                })
+                .catch((error) => {
+                    errorMessage.style.color = "red"; // Ensure it's red for errors
+                    errorMessage.style.display = "block";
+                    if(error.code === 'auth/invalid-credential') {
+                        errorMessage.innerText = "Incorrect email or password.";
+                    } else {
+                        errorMessage.innerText = error.message;
+                    }
+                });
+        });
+
+        // 2. Handle Google Sign-In
+        document.getElementById('google-btn').addEventListener('click', () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    window.location.href = "profile.html";
+                }).catch((error) => {
+                    errorMessage.style.color = "red";
+                    errorMessage.style.display = "block";
+                    errorMessage.innerText = "Google Sign-In failed: " + error.message;
+                });
+        });
+
+        // 3. Handle GitHub Sign-In
+        document.getElementById('github-btn').addEventListener('click', () => {
+            signInWithPopup(auth, githubProvider)
+                .then((result) => {
+                    window.location.href = "profile.html";
+                }).catch((error) => {
+                    errorMessage.style.color = "red";
+                    errorMessage.style.display = "block";
+                    if (error.code === 'auth/account-exists-with-different-credential') {
+                        errorMessage.innerText = "An account already exists with this email address. Please sign in using Google or Email/Password.";
+                    } else {
+                        errorMessage.innerText = "GitHub Sign-In failed: " + error.message;
+                    }
+                });
+        });
+
+        // 4. ADDED: Handle Forgot Password
+        document.getElementById('forgot-password').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the link from jumping to the top of the page
+            
+            const email = document.getElementById('email').value;
+
+            // Check if the user has typed an email yet
+            if (!email) {
+                errorMessage.style.color = "red";
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "Please type your email address in the field above, then click 'Forgot Password?' again.";
+                return;
+            }
+
+            // Send the reset email
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    errorMessage.style.color = "green"; // Show a success message in green
+                    errorMessage.style.display = "block";
+                    errorMessage.innerText = "Password reset email sent! Please check your inbox.";
+                })
+                .catch((error) => {
+                    errorMessage.style.color = "red";
+                    errorMessage.style.display = "block";
+                    if (error.code === 'auth/user-not-found') {
+                        errorMessage.innerText = "No account found with that email address.";
+                    } else if (error.code === 'auth/invalid-email') {
+                        errorMessage.innerText = "Please enter a valid email address.";
+                    } else {
+                        errorMessage.innerText = error.message;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

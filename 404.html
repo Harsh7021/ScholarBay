@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Resource Not Found | ScholarBay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Subtle modern gradient background */
+            background: linear-gradient(135deg, #f0f4f8 0%, #dce5ef 100%);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-container {
+            max-width: 550px;
+            padding: 50px 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            /* Thicker, softer shadow for a floating effect */
+            box-shadow: 0 15px 35px rgba(0, 31, 63, 0.08); 
+            /* Nice navy accent line at the top */
+            border-top: 6px solid #001f3f; 
+        }
+
+        .animated-icon {
+            font-size: 4rem;
+            color: #003366;
+            margin-bottom: 15px;
+            /* Gentle floating animation */
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .error-code {
+            font-size: 7rem;
+            font-weight: 900;
+            margin: 0;
+            color: #001f3f;
+            line-height: 1;
+            letter-spacing: -4px;
+            text-shadow: 2px 2px 0px rgba(0, 51, 102, 0.1);
+        }
+
+        .error-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 15px 0 15px;
+            color: #003366;
+            letter-spacing: -0.5px;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #4b6584;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #003366 0%, #001f3f 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.2);
+        }
+
+        .btn-home:hover {
+            background: linear-gradient(135deg, #004080 0%, #002855 100%);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 31, 63, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <i class="fa fa-folder-open-o animated-icon" aria-hidden="true"></i>
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Resource Not Found</h2>
+        <p class="error-message">
+            Oops! It looks like this study material got lost in the library. The page you are looking for has been moved, deleted, or doesn't exist.
+        </p>
+        <a href="index.html" class="btn-home">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to ScholarBay
+        </a>
+    </div>
+
+</body>
+</html>

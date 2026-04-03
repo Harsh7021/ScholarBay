@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ScholarBay | Profile</title>
+
+    <meta name="keywords" content="ScholarBay, IT Notes, Navi Mumbai Education" />
+    <meta name="description" content="Manage your ScholarBay profile." />
+    <meta name="author" content="ScholarBay Team" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/loading.css" />
+
+    <style>
+      /* --- Enhanced Profile Styles --- */
+      .loader-hidden { display: none !important; }
+      
+      .modern-card { 
+        border-radius: 20px; 
+        border: none; 
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+        overflow: hidden; 
+        transition: transform 0.3s ease;
+      }
+      .modern-card:hover { transform: translateY(-5px); }
+      
+      .profile-cover { 
+        background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%); 
+        height: 150px; 
+        width: 100%; 
+      }
+      
+      .avatar-container { margin-top: -75px; }
+      
+      .modern-avatar { 
+        width: 140px; 
+        height: 140px; 
+        object-fit: cover; 
+        background-color: #ffffff; 
+        border: 6px solid #ffffff; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      }
+      
+      .modern-input { 
+        border-radius: 12px; 
+        background-color: #f8f9fa; 
+        border: 1px solid #e9ecef; 
+        padding: 14px 20px; 
+        transition: all 0.3s; 
+        font-size: 0.95rem;
+      }
+      .modern-input:focus {
+        background-color: #ffffff;
+        border-color: #8e2de2;
+        box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.1);
+        outline: none;
+      }
+      
+      .modern-btn { 
+        border-radius: 50px; 
+        padding: 14px 35px; 
+        font-weight: 600; 
+        transition: all 0.3s ease; 
+        letter-spacing: 0.5px;
+      }
+      .modern-btn-primary { 
+        background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%); 
+        border: none; 
+        color: white; 
+        box-shadow: 0 8px 20px rgba(74, 0, 224, 0.3);
+      }
+      .modern-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(74, 0, 224, 0.4);
+        color: white;
+      }
+      
+      .input-label-icon {
+        color: #8e2de2;
+        margin-right: 8px;
+        width: 16px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader-wrapper">
+      <div class="loader-container">
+        <div class="glow"></div>
+        <div class="loader-ring"></div>
+        <div class="loader-logo">⚡</div>
+      </div>
+      <p class="loading-text">Preparing your experience</p>
+    </div>
+
+    <div class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="logo" href="index.html"><img src="images/logo.png" /></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample01">
+            <ul class="navbar-nav w-100">
+              <div class="row w-100">
+                <li class="nav-item col-6"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item col-6"><a class="nav-link" href="client.html">Client</a></li>
+              </div>
+              <div class="row w-100">
+                <li class="nav-item col-6"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item col-6"><a class="nav-link" href="contact.html">Contact Us</a></li>
+              </div>
+              <div class="row w-100">
+                <li class="nav-item col-6"><a class="nav-link" href="service-info.html">Services</a></li>
+                <li class="nav-item col-6"><a class="nav-link" href="profile.html">Profile</a></li>
+              </div>
+              <div class="row w-100">
+                <li class="nav-item col-6"><a class="nav-link" href="Resource-1.html">Resource</a></li>
+                <li class="nav-item col-6"><a class="nav-link" href="future-plans.html">Future Plans</a></li>
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container mt-5 mb-5 pt-4">
+      <div class="row mb-5 text-center text-md-left">
+        <div class="col-12">
+          <h2 class="font-weight-bold" style="color: #2b2b2b;">Account Settings</h2>
+          <p class="text-muted" style="font-size: 1.1rem;">Manage your ScholarBay profile information.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-5 mb-4">
+          <div class="card modern-card text-center pb-4">
+            <div class="profile-cover"></div>
+            <div class="card-body px-4">
+              
+              <div class="avatar-container position-relative d-inline-block mb-3">
+                <img src="https://ui-avatars.com/api/?name=Student&background=f0e6ff&color=4a00e0&size=200" id="profile-image" class="rounded-circle modern-avatar" alt="Profile Picture"/>
+                
+                <button id="upload-photo-btn" type="button" title="Change Photo" class="btn btn-sm btn-primary position-absolute rounded-circle shadow" style="bottom: 8px; right: 8px; width: 42px; height: 42px; border: 3px solid white; background: #4a00e0;">
+                  <i class="fa fa-camera"></i>
+                </button>
+                <input type="file" id="profile-image-upload" accept="image/*" style="display: none;" />
+              </div>
+
+              <h4 id="display-name" class="font-weight-bold mb-1" style="color: #333;">Student Name</h4>
+              <p id="display-email" class="text-muted mb-4" style="font-size: 0.95rem;">student@example.com</p>
+              
+              <hr style="width: 80%; border-top: 1px solid #eee;">
+              
+              <button id="logout-btn" class="btn btn-link text-danger font-weight-bold mt-2" style="border:none; background:none; cursor:pointer; text-decoration: none;">
+                <i class="fa fa-sign-out mr-2"></i> Log Out
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-7">
+          <div class="card modern-card h-100">
+            <div class="card-body p-5">
+              
+              <form id="profileForm">
+                
+                <h4 class="font-weight-bold mb-4 pb-2" style="color: #2b2b2b; border-bottom: 2px solid #f0f0f0;">Personal Details</h4>
+                <div class="row">
+                  <div class="col-md-6 form-group mb-4">
+                    <label class="text-muted small font-weight-bold text-uppercase"><i class="fa fa-user input-label-icon"></i>First Name</label>
+                    <input type="text" id="firstName" class="form-control modern-input" placeholder="e.g. John" />
+                  </div>
+                  <div class="col-md-6 form-group mb-4">
+                    <label class="text-muted small font-weight-bold text-uppercase"><i class="fa fa-user input-label-icon"></i>Last Name</label>
+                    <input type="text" id="lastName" class="form-control modern-input" placeholder="e.g. Doe" />
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 form-group mb-4">
+                    <label class="text-muted small font-weight-bold text-uppercase"><i class="fa fa-envelope input-label-icon"></i>Email Address</label>
+                    <input type="email" id="email" class="form-control modern-input" value="" readonly style="background-color: #e9ecef; cursor: not-allowed;" title="Email cannot be changed here."/>
+                  </div>
+                  <div class="col-md-6 form-group mb-4">
+                    <label class="text-muted small font-weight-bold text-uppercase"><i class="fa fa-phone input-label-icon"></i>Phone Number</label>
+                    <input type="tel" id="phone" class="form-control modern-input" placeholder="+91 xxxxxxxxxx" />
+                  </div>
+                </div>
+                
+                <div class="form-group mb-5">
+                    <label class="text-muted small font-weight-bold text-uppercase"><i class="fa fa-graduation-cap input-label-icon"></i>Course</label>
+                    <input type="text" id="course" class="form-control modern-input" placeholder="e.g. B.Sc. Information Technology" />
+                </div>
+
+                <div class="mt-4 pt-2">
+                    <button type="submit" id="save-btn" class="btn modern-btn modern-btn-primary px-5">
+                      <i class="fa fa-save mr-2"></i> Save Changes
+                    </button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer_section layout_padding">
+      <div class="container">
+        <div class="address_main">
+          <div class="address_text">
+            <a href="#"><img src="images/map-icon.png" /><span class="padding_left_15">Navi Mumbai, Kamothe</span></a>
+          </div>
+          <div class="address_text">
+            <a href="https://wa.me/917021197422"><img src="images/call-icon.png" /><span class="padding_left_15">tel:+91 70211 97422</span></a>
+          </div>
+          <div class="address_text">
+            <a href="mailto:scholarbay@gmail.com"><img src="images/mail-icon.png" /><span class="padding_left_15">scholarbay@gmail.com</span></a>
+          </div>
+        </div>
+        <div class="footer_section_2">
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Quick visit</h4>
+              <div class="footer_menu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="service-info.html">Services</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Legal</h4>
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                  </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Social Media</h4>
+              <div class="social_icon">
+                <ul>
+                  <li><a href="#"><img src="images/fb-icon.png" /></a></li>
+                  <li><a href="#"><img src="images/twitter-icon.png" /></a></li>
+                  <li><a href="#"><img src="images/linkedin-icon.png" /></a></li>
+                  <li><a href="#"><img src="images/youtub-icon.png" /></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Headquarters</h4>
+              <p class="footer_text_1">Komal CHS Ltd. Sector 9, Kamothe, Navi Mumbai - 410209 Maharashtra, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright_section">
+      <div class="container">
+        <p class="copyright_text">© 2026 All Right Reserved By <a href="index.html">ScholarBay</a></p>
+      </div>
+    </div>
+
+    <canvas id="cursor-canvas"></canvas>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.querySelector("#loader-wrapper");
+        setTimeout(() => {
+          loader.classList.add("loader-hidden");
+        }, 600);
+      });
+    </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      import { getAuth, onAuthStateChanged, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+      import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyB6FMgrNQTd0GCbjMva4-VbWkPDRoAn11Q",
+        authDomain: "scholarbay-f5d55.firebaseapp.com",
+        projectId: "scholarbay-f5d55",
+        storageBucket: "scholarbay-f5d55.firebasestorage.app",
+        messagingSenderId: "140514709575",
+        appId: "1:140514709575:web:9594cbb58dc311386a2162",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // --- Check Authentication State ---
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          document.getElementById('display-name').innerText = user.displayName || "Student";
+          document.getElementById('display-email').innerText = user.email;
+          document.getElementById('email').value = user.email;
+          
+          if (user.displayName) {
+              const nameParts = user.displayName.split(" ");
+              document.getElementById('firstName').value = nameParts[0] || "";
+              document.getElementById('lastName').value = nameParts.slice(1).join(" ") || "";
+          }
+
+          // Fetch extra data AND the profile picture from Firestore
+          const userDocRef = doc(db, "students", user.uid);
+          const userDocSnap = await getDoc(userDocRef);
+          
+          if (userDocSnap.exists()) {
+              const data = userDocSnap.data();
+              document.getElementById('phone').value = data.phone || "";
+              if(data.course) document.getElementById('course').value = data.course;
+              
+              // Load the saved Base64 image from the database
+              if(data.profilePic) {
+                  document.getElementById('profile-image').src = data.profilePic;
+              } else {
+                  // Default avatar if no picture is saved
+                  const defaultName = user.displayName ? user.displayName.replace(" ", "+") : "Student";
+                  document.getElementById('profile-image').src = `https://ui-avatars.com/api/?name=${defaultName}&background=f0e6ff&color=4a00e0&size=200`;
+              }
+          } else {
+              const defaultName = user.displayName ? user.displayName.replace(" ", "+") : "Student";
+              document.getElementById('profile-image').src = `https://ui-avatars.com/api/?name=${defaultName}&background=f0e6ff&color=4a00e0&size=200`;
+          }
+        } else {
+          window.location.href = "login.html"; 
+        }
+      });
+
+      // --- Handle Free Profile Image Upload (Base64 Compression) ---
+      const uploadBtn = document.getElementById('upload-photo-btn');
+      const fileInput = document.getElementById('profile-image-upload');
+      const profileImage = document.getElementById('profile-image');
+
+      uploadBtn.addEventListener('click', () => {
+          fileInput.click(); 
+      });
+
+      fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          const user = auth.currentUser;
+
+          if (file && user) {
+              uploadBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+              
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = function(event) {
+                  const img = new Image();
+                  img.src = event.target.result;
+                  img.onload = async function() {
+                      // Create a canvas to compress the image
+                      const canvas = document.createElement('canvas');
+                      const MAX_WIDTH = 250; // Keep it small to fit in the database limit
+                      const scaleSize = MAX_WIDTH / img.width;
+                      canvas.width = MAX_WIDTH;
+                      canvas.height = img.height * scaleSize;
+                      
+                      const ctx = canvas.getContext('2d');
+                      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                      
+                      // Convert compressed image to a text string (Base64)
+                      const base64String = canvas.toDataURL("image/jpeg", 0.7);
+                      
+                      // Save the string directly to the free Firestore Database
+                      try {
+                          const userDocRef = doc(db, "students", user.uid);
+                          await setDoc(userDocRef, { profilePic: base64String }, { merge: true });
+                          profileImage.src = base64String;
+                      } catch (error) {
+                          console.error("Error saving image:", error);
+                          alert("Failed to save image. Please try a smaller file.");
+                      } finally {
+                          uploadBtn.innerHTML = '<i class="fa fa-camera"></i>';
+                      }
+                  }
+              };
+          }
+      });
+
+      // --- Handle Profile Form Updates ---
+      document.getElementById('profileForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const user = auth.currentUser;
+          if (!user) return;
+
+          const saveBtn = document.getElementById('save-btn');
+          const originalBtnText = saveBtn.innerHTML;
+          saveBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Saving...';
+          saveBtn.disabled = true;
+
+          const firstName = document.getElementById('firstName').value;
+          const lastName = document.getElementById('lastName').value;
+          const phone = document.getElementById('phone').value;
+          const course = document.getElementById('course').value;
+
+          try {
+              const fullName = `${firstName} ${lastName}`.trim();
+              await updateProfile(user, { displayName: fullName });
+              document.getElementById('display-name').innerText = fullName;
+
+              const userDocRef = doc(db, "students", user.uid);
+              await setDoc(userDocRef, {
+                  phone: phone,
+                  course: course
+              }, { merge: true });
+
+              alert("Profile updated successfully!");
+          } catch (error) {
+              console.error("Error updating profile:", error);
+              alert("Error: " + error.message);
+          } finally {
+              saveBtn.innerHTML = originalBtnText;
+              saveBtn.disabled = false;
+          }
+      });
+
+      // --- Handle Logout ---
+      document.getElementById('logout-btn').addEventListener('click', () => {
+          signOut(auth).then(() => {
+              window.location.href = "login.html";
+          });
+      });
+    </script>
+  </body>
+</html>

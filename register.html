@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScholarBay - Register</title>
+    
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-shapes"></div>
+
+    <div class="register-wrapper">
+        <div class="register-card" style="position: relative;">
+            
+            <button type="button" onclick="window.location.href='index.html';" style="position: absolute; top: 15px; right: 15px; border: none; background: none; cursor: pointer; font-size: 1.5rem; color: #333; z-index: 10;">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="register-header">
+                <h2>Create Account</h2>
+                <p>Join <span class="brand">ScholarBay</span> to access study materials.</p>
+            </div>
+
+            <p id="error-message" style="color: red; text-align: center; display: none; font-size: 0.9rem; margin-bottom: 10px;"></p>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <label for="fullname">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="fullname" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="student@example.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" placeholder="Create a password (min 6 chars)" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <div class="terms-group">
+                    <label class="terms-label">
+                        <input type="checkbox" required>
+                        <span>I agree to the <a href="terms-conditions.html">Terms & Conditions</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign Up</button>
+
+                <div class="divider">
+                    <span>Or register with</span>
+                </div>
+
+                <button type="button" id="google-btn" class="btn-google">
+                    <img src="images/google-logo.jpg" alt="Google" style="width: 20px; margin-right: 10px;">
+                    Sign up with Google
+                </button>
+
+                <button type="button" id="github-btn" class="btn-google" style="margin-top: 15px;">
+                    <i class="fab fa-github" style="font-size: 1.2rem; margin-right: 10px; color: #24292e;"></i>
+                    Sign up with GitHub
+                </button>
+            </form>
+
+            <div class="register-footer">
+                <p>Already have an account? <a href="login.html">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        // ADDED GithubAuthProvider to the imports
+        import { getAuth, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB6FMgrNQTd0GCbjMva4-VbWkPDRoAn11Q",
+            authDomain: "scholarbay-f5d55.firebaseapp.com",
+            projectId: "scholarbay-f5d55",
+            storageBucket: "scholarbay-f5d55.firebasestorage.app",
+            messagingSenderId: "140514709575",
+            appId: "1:140514709575:web:9594cbb58dc311386a2162",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        // Initialize Providers
+        const googleProvider = new GoogleAuthProvider();
+        const githubProvider = new GithubAuthProvider();
+
+        const registerForm = document.getElementById('registerForm');
+        const errorMessage = document.getElementById('error-message');
+
+        // 1. Handle Standard Email/Password Registration
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const fullName = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "Passwords do not match!";
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    
+                    return updateProfile(user, {
+                        displayName: fullName
+                    }).then(() => {
+                        window.location.href = "profile.html";
+                    });
+                })
+                .catch((error) => {
+                    errorMessage.style.display = "block";
+                    if (error.code === 'auth/weak-password') {
+                        errorMessage.innerText = "Password must be at least 6 characters long.";
+                    } else if (error.code === 'auth/email-already-in-use') {
+                        errorMessage.innerText = "An account already exists with this email.";
+                    } else {
+                        errorMessage.innerText = error.message;
+                    }
+                });
+        });
+
+        // 2. Handle Google Sign-Up
+        document.getElementById('google-btn').addEventListener('click', () => {
+            signInWithPopup(auth, googleProvider)
+                .then((result) => {
+                    window.location.href = "profile.html";
+                }).catch((error) => {
+                    errorMessage.style.display = "block";
+                    errorMessage.innerText = "Google Sign-Up failed: " + error.message;
+                });
+        });
+
+        // 3. Handle GitHub Sign-Up
+        document.getElementById('github-btn').addEventListener('click', () => {
+            signInWithPopup(auth, githubProvider)
+                .then((result) => {
+                    window.location.href = "profile.html";
+                }).catch((error) => {
+                    errorMessage.style.display = "block";
+                    if (error.code === 'auth/account-exists-with-different-credential') {
+                        errorMessage.innerText = "An account already exists with this email address. Please sign in using Google or Email/Password.";
+                    } else {
+                        errorMessage.innerText = "GitHub Sign-Up failed: " + error.message;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

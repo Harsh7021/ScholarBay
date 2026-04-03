@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <title>ScholarBay</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+    <link rel="stylesheet" href="css/loading.css" />
+  </head>
+  <body>
+    <div id="loader-wrapper">
+      <div class="loader-container">
+        <div class="glow"></div>
+        <div class="loader-ring"></div>
+        <div class="loader-logo">⚡</div>
+      </div>
+      <p class="loading-text">Preparing your experience</p>
+    </div>
+
+    <div class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="logo" href="index.html"><img src="images/logo.png" /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarsExample01"
+            aria-controls="navbarsExample01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample01">
+            <ul class="navbar-nav w-100">
+              <div class="row w-100">
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="client.html">Client</a>
+                </li>
+              </div>
+
+              <div class="row w-100">
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+              </div>
+
+              <div class="row w-100">
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="service-info.html">Services</a>
+                </li>
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+              </div>
+
+              <div class="row w-100">
+                <li class="nav-item col-6">
+                  <a class="nav-link" href="Resource-1.html">Resource</a>
+                  </li>
+                  <li class="nav-item col-6">
+                    <a class="nav-link" href="future-plans.html">Future Plans</a>
+                  </li>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+    <style>
+  .sb-future-section {
+      background-color: #f8f9fa; 
+      padding: 6rem 0;
+      font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .sb-header-box {
+      background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%); 
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 15px 30px -10px rgba(147, 51, 234, 0.3);
+  }
+
+  .sb-feature-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 2.5rem;
+      background: #ffffff;
+      height: 100%;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      z-index: 1;
+      cursor: pointer; /* Added cursor pointer here */
+  }
+
+  .sb-feature-card:hover {
+      border-color: #c084fc; 
+      box-shadow: 0 20px 40px -15px rgba(147, 51, 234, 0.15); 
+      transform: translateY(-5px);
+  }
+
+  /* Updated container to accommodate images */
+  .sb-icon-wrapper {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #f3f0ff; 
+      margin-bottom: 2rem;
+      transition: all 0.4s ease;
+      overflow: hidden; /* Important for rounded corners on image */
+      padding: 8px; /* Safe padding for image object-fit */
+  }
+
+  /* Target the img inside the wrapper */
+  .sb-icon-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Prevents stretching */
+      transition: all 0.4s ease;
+  }
+
+  /* Adjust background to transparent on hover so image shows through */
+  .sb-feature-card:hover .sb-icon-wrapper {
+      background: rgba(255, 255, 255, 0.8);
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 10px 20px rgba(147, 51, 234, 0.25);
+  }
+
+  .sb-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      background: #ede9fe; 
+      color: #6b21a8; 
+      display: inline-block;
+      margin-bottom: 1rem;
+  }
+
+  .text-slate-900 { color: #0f172a; }
+  .text-slate-500 { color: #64748b; line-height: 1.7; }
+</style>
+
+<section class="sb-future-section" id="future-plans">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="sb-header-box text-center">
+          <h2 class="display-5 fw-bold text-white mb-3">
+            The ScholarBay Roadmap
+          </h2>
+          <p
+            class="fs-5 text-white opacity-75 mx-auto mb-0"
+            style="max-width: 700px;"
+          >
+            We are continuously expanding our platform to provide a more robust
+            academic ecosystem. Discover the tools and features we are launching
+            next.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="sb-feature-card" onclick="window.location.href='404.html'">
+          <span class="sb-tag">In Progress</span>
+          <div class="sb-icon-wrapper">
+            <img src="images/upload-icon.png" alt="Student Uploads" />
+          </div>
+          <h4 class="fw-bold text-slate-900 mb-3">Student Uploads</h4>
+          <p class="text-slate-500 mb-0">
+            Empower the community. A streamlined interface for students to
+            seamlessly upload and index their own notes and academic materials.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="sb-feature-card" onclick="window.location.href='404.html'">
+          <span class="sb-tag">Upcoming</span>
+          <div class="sb-icon-wrapper">
+            <img src="images/download-icon.png" alt="Offline Download" />
+          </div>
+          <h4 class="fw-bold text-slate-900 mb-3">Offline Access</h4>
+          <p class="text-slate-500 mb-0">
+            Secure, local downloads for previous-year question papers and
+            reference books, ensuring study sessions remain uninterrupted
+            without internet access.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="sb-feature-card" onclick="window.location.href='404.html'">
+          <span class="sb-tag">Upcoming</span>
+          <div class="sb-icon-wrapper">
+            <img src="images/notification-icon.png" alt="Notifications" />
+          </div>
+          <h4 class="fw-bold text-slate-900 mb-3">Smart Notifications</h4>
+          <p class="text-slate-500 mb-0">
+            Automated, real-time alerts notifying you the moment new resources
+            are published for your enrolled courses or when your "Ask" queries
+            receive responses.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <div class="sb-feature-card" onclick="window.location.href='404.html'">
+          <span class="sb-tag">Planning</span>
+          <div class="sb-icon-wrapper">
+            <img src="images/premium-icon.png" alt="Premium Access" />
+          </div>
+          <h4 class="fw-bold text-slate-900 mb-3">Premium Subscription Tier</h4>
+          <p class="text-slate-500 mb-0">
+            An optional upgrade offering an ad-free environment, access to an
+            exclusive repository of expert-verified study guides, and priority
+            routing for academic questions.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-6">
+        <div class="sb-feature-card" onclick="window.location.href='404.html'">
+          <span class="sb-tag">Planning</span>
+          <div class="sb-icon-wrapper">
+            <img src="images/qa-icon.png" alt="Advanced Q&A" />
+          </div>
+          <h4 class="fw-bold text-slate-900 mb-3">
+            Advanced "Ask" Integration
+          </h4>
+          <p class="text-slate-500 mb-0">
+            Upgrading our Q&A infrastructure with rich-text formatting, image
+            support for complex equations, and upvoting systems to surface the
+            most helpful academic answers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer_section layout_padding">
+      <div class="container">
+        <div class="address_main">
+          <div class="address_text">
+            <a href="https://maps.app.goo.gl/ftq3nLXWYzwq8uYU9" target="_blank"
+              ><img src="images/map-icon.png" /><span class="padding_left_15"
+                >Navi Mumbai, Kamothe</span
+              ></a
+            >
+          </div>
+          <div class="address_text">
+            <a href="tel:+917021197422"
+              ><img src="images/call-icon.png" /><span class="padding_left_15"
+                >+91 7021197422</span
+              ></a
+            >
+          </div>
+          <div class="address_text">
+            <a href="mailto:scholarbay@gmail.com"
+              ><img src="images/mail-icon.png" /><span class="padding_left_15"
+                >scholarbay@gmail.com</span
+              ></a
+            >
+          </div>
+        </div>
+        <div class="footer_section_2">
+          <div class="row">
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Quick visit</h4>
+              <div class="footer_menu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="service-info.html">Services</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">Legal</h4>
+                <div class="footer_menu">
+                  <ul>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                  </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">social media</h4>
+              <div class="social_icon">
+                <ul>
+                  <li>
+                    <a href="https://www.facebook.com/" target="_blank"
+                      ><img src="images/fb-icon.png" alt="Facebook"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/" target="_blank"
+                      ><img src="images/twitter-icon.png" alt="Twitter"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/" target="_blank"
+                      ><img src="images/linkedin-icon.png" alt="LinkedIn"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/" target="_blank"
+                      ><img src="images/youtub-icon.png"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+              <h4 class="link_text">ScholarBay Head quarters</h4>
+              <p class="footer_text_1">
+                Komal CHS Ltd. Sector 9, Kamothe, Navi Mumbai - 410209
+                Maharashtra, India
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright_section">
+      <div class="container">
+        <p class="copyright_text">
+          © 2026 All Right Reserved By <a href="index.html">ScholarBay</a>
+        </p>
+      </div>
+    </div>
+    <canvas id="cursor-canvas"></canvas>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script
+      type="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2//2.0.0-beta.2.4/owl.carousel.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      cross crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>',
+        );
+    </script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.querySelector("#loader-wrapper");
+
+        // Add a slight delay for aesthetic purposes (optional)
+        setTimeout(() => {
+          loader.classList.add("loader-hidden");
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

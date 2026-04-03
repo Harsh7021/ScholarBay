@@ -1,0 +1,262 @@
+:root {
+    --primary-color: #4361ee;
+    --primary-hover: #3a53d0;
+    --text-dark: #1e1e2f;
+    --text-gray: #6b7280;
+    --bg-gradient: linear-gradient(135deg, #4361ee 0%, #3f37c9 100%);
+    --white: #ffffff;
+    --input-bg: #f9fafb;
+    --error-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f4f6;
+    position: relative;
+    padding: 20px; /* Padding for mobile screens */
+}
+
+/* Background Shapes */
+.background-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 10%, rgb(239, 246, 255) 0%, rgb(219, 228, 255) 90%);
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-shapes::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #4361ee;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+    bottom: -100px;
+    right: -100px;
+}
+
+.background-shapes::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #4cc9f0;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    top: -50px;
+    left: -50px;
+}
+
+/* Card Container */
+.register-wrapper {
+    width: 100%;
+    max-width: 450px;
+}
+
+.register-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Header */
+.register-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.register-header h2 {
+    font-size: 26px;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.register-header p {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.brand {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 45px;
+    background: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+    background: var(--white);
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+}
+
+/* Error State styling (Used by JS) */
+.input-wrapper input.error {
+    border-color: var(--error-color);
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+/* Terms Checkbox */
+.terms-group {
+    margin-bottom: 20px;
+}
+
+.terms-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-gray);
+    cursor: pointer;
+}
+
+.terms-label input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-color);
+}
+
+.terms-label a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.25);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: var(--text-gray);
+    font-size: 12px;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.btn-google {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-google:hover {
+    background: #f9fafb;
+}
+
+.btn-google img {
+    width: 18px;
+}
+
+/* Footer */
+.register-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+.register-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-footer a:hover {
+    text-decoration: underline;
+}
